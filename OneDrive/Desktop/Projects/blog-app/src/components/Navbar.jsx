@@ -14,7 +14,7 @@ const sora = Sora({
 const Navbar = () => {
   return (
     <nav className='w-[100%] flex items-center justify-between h-[100px]'>
-      <div className={`${sora.className} md:text-xl text-left xl:text-3xl lg:flex-1 lg:text-center text-4xl`}>
+      <div className={`${sora.className} md:text-xl text-left xl:text-3xl lg:text-center text-4xl`}>
         Bloggie
       </div>
       <div className=" md:flex md:flex-3 md:gap-4 xl:gap-5 xl:text-lg md:text-xl md:items-center justify-around">

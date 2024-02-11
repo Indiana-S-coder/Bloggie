@@ -24,10 +24,10 @@ const loginPage = () => {
             <div className='bg-red-500 p-4 rounded-md border-none w-52 text-white cursor-pointer font-bold flex justify-center items-center' onClick={() => signIn("google")}>
                 Sign in with Google
             </div>
-            <div className='cursor-not-allowed bg-blue-500 p-4 rounded-md border-none w-52 text-white cursor-pointer font-bold flex justify-center items-center'>
+            <div className='cursor-not-allowed bg-blue-500 p-4 rounded-md border-none w-52 text-white font-bold flex justify-center items-center'>
                 Sign in with facebook
             </div>
-            <div className='cursor-not-allowed bg-black p-4 rounded-md border-none w-52 text-white cursor-pointer font-bold flex justify-center items-center'>
+            <div className='cursor-not-allowed bg-black p-4 rounded-md border-none w-52 text-white font-bold flex justify-center items-center'>
                 Sign in with Github
             </div>
         </div>
