@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className={`${sora.className} md:text-xl text-left xl:text-3xl lg:flex-1 lg:text-center text-4xl`}>
         Bloggie
       </div>
-      <div className=" md:flex md:flex-3 md:gap-4 xl:gap-3 xl:text-lg md:text-xl md:items-center justify-around">
+      <div className=" md:flex md:flex-3 md:gap-4 xl:gap-5 xl:text-lg md:text-xl md:items-center justify-around">
       {/* <ThemeToggle/> */}
         <Link href='/'>Home</Link>
         <Link href='/'>Contact</Link>

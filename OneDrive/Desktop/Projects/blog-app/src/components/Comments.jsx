@@ -1,13 +1,37 @@
 "use client";
-import React from 'react'
+import React, { useState } from 'react'
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
+import useSWR from 'swr';
+
+const fetcher = async(url) => {
+  const res = await fetch(url);
+  const data = await res.json();
+
+  if(!res.ok){
+    const error = new Error(data.message);
+    throw error;
+  }
+  return data;
+}
 
 const Comments = () => {
-    const status = "authenticated"
+    const {status} = useSession();
+
+    const {data, mutate, isLoading } = useSWR(
+      `http://localhost:3000/api/comments?postSlug=${postSlug}`,
+      fetcher
+    )
+
+      const [desc, setDesc] = useState();
 
     const handleSubmit = async() => {
-        await fetch('')
+        await fetch('/api/comments',{
+          method: "POST",
+          body: JSON.stringify({desc, postSlug}),
+        })
+        mutate();
     }
   return (
     <div className='mt-[50px]'>
@@ -27,32 +51,30 @@ const Comments = () => {
         <Link href="/login">Login to write a comment</Link>
       )}
       <div className='mt-[50px]'>
-        {/* {isLoading */}
-           {/* ? "loading" */}
-           {/* : data?.map((item) => ( */}
+        {isLoading
+           ? "loading"
+           : data?.map((item) => (
               <div className='mb-[50px]'>
-                <div className='flex items-center gap-5 mb-5'>
-                  {/* {item?.user?.image && ( */}
+                <div className='flex items-center gap-5 mb-5' key={item._id}>
+                  {item?.user?.image && (
                     <Image
-                      src='/culture.png'
+                      src={item.user.image}
                       alt=""
                       width={50}
                       height={50}
                       className='rounded-full object-cover'
                     />
-                  {/* )} */}
+                   )} 
                   <div className='flex flex-col gap-1 text-[#626262]'>
-                    <span className='font-medium'>Username</span>
-                    <span className='text-base'>time and date</span>
+                    <span className='font-medium'>{item.user.name}</span>
+                    <span className='text-base'>{item.createdAt}</span>
                   </div>
                 </div>
-                <p className='text-lg font-light'>Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Culpa ad voluptatem at consectetur, 
-                nobis, laudantium voluptate consequatur dignissimos eveniet incidunt 
-                maxime inventore alias architecto delectus quis, iste deserunt quas! Sit!
+                <p className='text-lg font-light'>
+                  {item.desc}
                 </p>
               </div>
-            {/* ))} */}
+             ))} 
       </div>
     </div>
   )
