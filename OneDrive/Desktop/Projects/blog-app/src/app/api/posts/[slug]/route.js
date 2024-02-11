@@ -1,7 +1,8 @@
-import { getAuthSession } from "@/utils/auth";
+
 import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
 
+// GET SINGLE POST
 export const GET = async (req, {params}) => {
   const { slug } = params;
 
@@ -11,6 +12,7 @@ export const GET = async (req, {params}) => {
       data: {views: {increment: 1}},
       include: {user: true},
   });
+    console.log(post.user.name)
     return new NextResponse(JSON.stringify(post, {status:200}));
   } catch(err){
     console.log(err);

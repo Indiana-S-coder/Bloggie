@@ -7,7 +7,7 @@ const MenuPosts = () => {
     <div className='mt-[35px] mb-[60px] flex flex-col gap-[35px]'>
       <Link href="/" className='flex items-center gap-5'>
         
-          <div className='flex flex-1 aspect-square relative'>
+          <div className='flex flex-2 aspect-square relative'>
             <Image src="/culture.png" alt="" fill className='rounded-full border-none object-cover' />
           </div>
         

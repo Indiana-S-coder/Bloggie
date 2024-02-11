@@ -16,7 +16,7 @@ const fetcher = async(url) => {
   return data;
 }
 
-const Comments = () => {
+const Comments = ({postSlug}) => {
     const {status} = useSession();
 
     const {data, mutate, isLoading } = useSWR(

@@ -1,11 +1,11 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import 'react-quill/dist/quill.bubble.css'
 import ReactQuill from 'react-quill'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
-import {app} from '@/utils/firebase'
+import { app } from '@/utils/firebase'
 import {
   getStorage,
   ref,

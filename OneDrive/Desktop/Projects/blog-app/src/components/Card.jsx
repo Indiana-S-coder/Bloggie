@@ -6,9 +6,13 @@ import Image from 'next/image'
 const Card = ({key, item}) => {
   return (
     <div className='mb-[50px] flex items-center gap-12'>
-        {item.img && (
+        {item.img ? (
             <div className=' flex-1 h-80 relative'>
                 <Image src={item.img} alt="" fill className='object-cover' />
+            </div>
+        ) : (
+            <div className=' flex-1 h-80 relative'>
+                <Image src='/culture.png' alt="" fill className='object-cover' />
             </div>
         )}
 

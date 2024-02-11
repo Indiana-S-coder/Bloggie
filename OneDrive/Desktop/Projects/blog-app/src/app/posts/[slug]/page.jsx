@@ -1,4 +1,4 @@
-import Menu from '@/components/Menu'
+
 import Image from 'next/image'
 import Comments from '@/components/Comments'
 
@@ -8,18 +8,17 @@ const getData = async(slug) => {
     })
 
     if(!res.ok){
-      console.log(`Error status: ${res.status}`);
-      console.log(`Error status text: ${res.statusText}`);
       throw new Error("Failed");
     }
 
     return res.json();
 }
 
-const SinglePage = async({params}) => {
+const SinglePage = async({ params }) => {
     const {slug} = params;
 
     const data = await getData(slug);
+    console.log(data);
     return (
     <div className='container'>
       <div className='flex items-center gap-[50px]'>
@@ -32,8 +31,8 @@ const SinglePage = async({params}) => {
               </div>
               )}
             <div className='flex flex-col gap-1 text-[#626262]'>
-              <span className='text-xl font-medum'>{data?.user?.name}</span>
-              <span className='text-gery'>01.01.2024</span>
+              <span className='text-xl font-medum'>{data?.user.name}</span>
+              <span className='text-gery'>{data?.user.createdAt}</span>
             </div>
           </div>
         </div>
@@ -56,7 +55,7 @@ const SinglePage = async({params}) => {
             />
           </div>
         </div>
-        <Menu />
+        
       </div>
     </div>
     )

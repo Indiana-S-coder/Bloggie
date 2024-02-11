@@ -5,13 +5,13 @@ import React from 'react'
 
 
 const loginPage = () => {
-   const {data, status} = useSession();
-   console.log(data, status);
+   const { status } = useSession();
+  
 
    const router = useRouter();
 
    if(status === "loading"){
-    return <div className='text-xl text-slate-800 font-bold'>Loading...</div>
+    return <div className='flex justify-center items-center text-3xl text-slate-800 font-bold'>Loading...</div>
    }
 
    if(status === "authenticated"){
@@ -24,10 +24,10 @@ const loginPage = () => {
             <div className='bg-red-500 p-4 rounded-md border-none w-52 text-white cursor-pointer font-bold flex justify-center items-center' onClick={() => signIn("google")}>
                 Sign in with Google
             </div>
-            <div className='bg-blue-500 p-4 rounded-md border-none w-52 text-white cursor-pointer font-bold flex justify-center items-center'>
+            <div className='cursor-not-allowed bg-blue-500 p-4 rounded-md border-none w-52 text-white cursor-pointer font-bold flex justify-center items-center'>
                 Sign in with facebook
             </div>
-            <div className='bg-black p-4 rounded-md border-none w-52 text-white cursor-pointer font-bold flex justify-center items-center'>
+            <div className='cursor-not-allowed bg-black p-4 rounded-md border-none w-52 text-white cursor-pointer font-bold flex justify-center items-center'>
                 Sign in with Github
             </div>
         </div>
