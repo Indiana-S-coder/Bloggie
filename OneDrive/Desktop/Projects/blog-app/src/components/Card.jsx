@@ -1,11 +1,10 @@
 import React from 'react'
-import CardList from './CardList'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const Card = ({key, item}) => {
+const Card = ({item}) => {
   return (
-    <div className='mb-[50px] flex items-center gap-12'>
+    <div className='mb-[50px] flex items-center gap-12' >
         {item.img ? (
             <div className=' flex-1 h-80 relative'>
                 <Image src={item.img} alt="" fill className='object-cover' />
