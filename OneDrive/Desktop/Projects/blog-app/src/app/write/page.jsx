@@ -11,6 +11,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
+import dynamic from 'next/dynamic'
 
 const writePage = () => {
   const {status} = useSession();
@@ -60,7 +61,7 @@ const writePage = () => {
     }, [file]);
   
     if (status === "loading") {
-      return <div className={styles.loading}>Loading...</div>;
+      return <div className='text-3xl text-slate-800 font-bold flex justify-center items-center'>Loading...</div>;
     }
   
     if (status === "unauthenticated") {
